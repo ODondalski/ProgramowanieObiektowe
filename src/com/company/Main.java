@@ -1,4 +1,7 @@
+package com.company;
+
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
     static void javaz00(){
@@ -36,18 +39,57 @@ public class Main {
         System.out.println(" +-----+");
         // zad10
         System.out.println("Terminator\nRambo\nJames Bond\n");
+        // zad11
+        System.out.println("""
+                Istnieli albo nie istnieli.
+                Na wyspie albo nie na wyspie.
+                Ocean albo nie ocean
+                połknął ich albo nie.
+                \s
+                Czy było komu kogoś słuchać kogo?
+                Czy było komu walczyć z kim?
+                Działo się wszystko albo nic
+                tam albo nie tam.
+                \s
+                Miast siedem stało.
+                Czy na pewno?
+                Stać wiecznie chciało.
+                Gdzie dowody?
+                \s
+                Nie wymyślili prochu, nie.
+                \s
+                Proch wymyślili, tak.
+                Przypuszczalni. Wątpliwi.
+                \s
+                Nie wyjęci z powietrza,
+                z ognia, z wody, z ziemi.
+                \s
+                Nie zawarci w kamieniu
+                ani w kropli deszczu.
+                \s
+                Nie mogący na serio
+                pozować do przestróg.
+                \s
+                Meteor spadł.
+                To nie meteor.
+                Wulkan wybuchnął.
+                To nie wulkan.
+                Ktoś wołał coś.
+                Niczego nikt.
+                \s
+                Na tej plus minus Atlantydzie.""");
     }
     static void javaz011(){
         Scanner scan1 = new Scanner(System.in);
         System.out.println("Podaj n");
         String output = scan1.nextLine();
         int out = Integer.parseInt(output);
-        int sum = 0;
+        double sum = 0;
         for(int i = 1; i <= out; i ++){
             Scanner scan2 = new Scanner(System.in);
             System.out.println("Podaj liczbe");
-            String outputi = scan1.nextLine();
-            int outi = Integer.parseInt(outputi);
+            String outputi = scan2.nextLine();
+            double outi = Integer.parseInt(outputi);
             sum += outi;
         }
         System.out.println(sum);
@@ -57,12 +99,12 @@ public class Main {
         System.out.println("Podaj n");
         String output = scan1.nextLine();
         int out = Integer.parseInt(output);
-        int multiply = 1;
+        double multiply = 1;
         for(int i = 1; i <= out; i ++){
             Scanner scan2 = new Scanner(System.in);
             System.out.println("Podaj liczbe");
-            String outputi = scan1.nextLine();
-            int outi = Integer.parseInt(outputi);
+            String outputi = scan2.nextLine();
+            double outi = Integer.parseInt(outputi);
             multiply *= outi;
         }
         System.out.println(multiply);
@@ -72,12 +114,12 @@ public class Main {
         System.out.println("Podaj n");
         String output = scan1.nextLine();
         int out = Integer.parseInt(output);
-        int sum_abs = 0;
+        double sum_abs = 0;
         for(int i = 1; i <= out; i ++){
             Scanner scan2 = new Scanner(System.in);
             System.out.println("Podaj liczbe");
-            String outputi = scan1.nextLine();
-            int outi = Integer.parseInt(outputi);
+            String outputi = scan2.nextLine();
+            double outi = Integer.parseInt(outputi);
             outi = Math.abs(outi);
             sum_abs += outi;
         }
@@ -88,11 +130,11 @@ public class Main {
         System.out.println("Podaj n");
         String output = scan1.nextLine();
         int out = Integer.parseInt(output);
-        int sum_abs_round = 0;
+        double sum_abs_round = 0;
         for(int i = 1; i <= out; i ++){
             Scanner scan2 = new Scanner(System.in);
             System.out.println("Podaj liczbe");
-            String outputi = scan1.nextLine();
+            String outputi = scan2.nextLine();
             double outi = Double.parseDouble(outputi);
             outi = Math.abs(outi);
             outi = Math.sqrt(outi);
@@ -105,7 +147,7 @@ public class Main {
         System.out.println("Podaj n");
         String output = scan1.nextLine();
         int out = Integer.parseInt(output);
-        int multiply_abs = 1;
+        double multiply_abs = 1;
         for(int i = 1; i <= out; i ++){
             Scanner scan2 = new Scanner(System.in);
             System.out.println("Podaj liczbe");
@@ -121,7 +163,7 @@ public class Main {
         System.out.println("Podaj n");
         String output = scan1.nextLine();
         int out = Integer.parseInt(output);
-        int sum_pow = 0;
+        double sum_pow = 0;
         for(int i = 1; i <= out; i ++){
             Scanner scan2 = new Scanner(System.in);
             System.out.println("Podaj liczbe");
@@ -137,8 +179,8 @@ public class Main {
         System.out.println("Podaj n");
         String output = scan1.nextLine();
         int out = Integer.parseInt(output);
-        int sum = 0;
-        int multiply = 1;
+        double sum = 0;
+        double multiply = 1;
         for(int i = 1; i <= out; i ++){
             Scanner scan2 = new Scanner(System.in);
             System.out.println("Podaj liczbe");
@@ -155,7 +197,7 @@ public class Main {
         System.out.println("Podaj n");
         String output = scan1.nextLine();
         int out = Integer.parseInt(output);
-        int sum = 0;
+        double sum = 0;
         for(int i = 1; i <= out; i ++){
             Scanner scan2 = new Scanner(System.in);
             System.out.println("Podaj liczbe");
@@ -189,7 +231,7 @@ public class Main {
         System.out.println("Podaj n");
         String output = scan1.nextLine();
         int out = Integer.parseInt(output);
-        int sum = 0;
+        double sum = 0;
         int fact = 1;
         for(int i = 1; i <= out; i ++){
             fact *= i;
@@ -220,17 +262,152 @@ public class Main {
         }
         System.out.println(sum);
     }
+    static void javaz02(){
+        Scanner scan1 = new Scanner(System.in);
+        System.out.println("Podaj n");
+        String output = scan1.nextLine();
+        ArrayList<String> nums = new ArrayList<String>();
+        String first_num = "";
+        int out = Integer.parseInt(output);
+        for(int i = 1; i <= out; i ++){
+            Scanner scan2 = new Scanner(System.in);
+            System.out.println("Podaj liczbe");
+            String outputi = scan2.nextLine();
+            if(i == 1){
+                first_num = String.copyValueOf(outputi.toCharArray());
+            }
+            else if(i == out){
+                nums.add(outputi);
+                nums.add(first_num);
+            }
+            else{
+                nums.add(outputi);
+            }
+
+        }
+        System.out.println(nums);
+    }
+    static void javaz12(){
+        Scanner scan1 = new Scanner(System.in);
+        System.out.println("Podaj n");
+        String output = scan1.nextLine();
+        double sum = 0;
+        int out = Integer.parseInt(output);
+        for(int i = 1; i <= out; i ++){
+            Scanner scan2 = new Scanner(System.in);
+            System.out.println("Podaj liczbe");
+            String outputi = scan2.nextLine();
+            double outi = Double.parseDouble(outputi);
+            if(outi >= 0){
+                sum += outi * 2;
+            }
+        }
+        System.out.println(sum);
+    }
+    static void javaz13(){
+        Scanner scan1 = new Scanner(System.in);
+        System.out.println("Podaj n");
+        String output = scan1.nextLine();
+        int zera = 0;
+        int dodatnie = 0;
+        int ujemne = 0;
+        int out = Integer.parseInt(output);
+        for(int i = 1; i <= out; i ++){
+            Scanner scan2 = new Scanner(System.in);
+            System.out.println("Podaj liczbe");
+            String outputi = scan2.nextLine();
+            double outi = Double.parseDouble(outputi);
+            if(outi > 0){
+                dodatnie += 1;
+            }
+            else if(outi < 0){
+                ujemne += 1;
+            }
+            else{
+                zera += 1;
+            }
+        }
+        System.out.println("Ujemnych liczb - " + ujemne + "\n" + "Dodatnich - " + dodatnie + "\n" + "Zer - " + zera);
+    }
+    static void javaz14(){
+        Scanner scan1 = new Scanner(System.in);
+        System.out.println("Podaj n");
+        String output = scan1.nextLine();
+        double najmniejsza = 0;
+        double najwieksza = 0;
+        int out = Integer.parseInt(output);
+        for(int i = 1; i <= out; i ++){
+            Scanner scan2 = new Scanner(System.in);
+            System.out.println("Podaj liczbe");
+            String outputi = scan2.nextLine();
+            double outi = Double.parseDouble(outputi);
+            if(i == 1){
+                najmniejsza = outi;
+                najwieksza = outi;
+            }
+            if(outi > najwieksza){
+                najwieksza = outi;
+            }
+            if(outi < najmniejsza){
+                najmniejsza = outi;
+            }
+        }
+        System.out.println("Najwieksza liczba = " + najwieksza + "\n" + "Najmniejsza = " + najmniejsza);
+    }
+    static void javaz15(){
+        Scanner scan1 = new Scanner(System.in);
+        System.out.println("Podaj n");
+        String output = scan1.nextLine();
+        ArrayList<Double> nums = new ArrayList<>();
+        ArrayList<Double> nums_par = new ArrayList<>();
+        double temp = 0;
+        boolean flag = true;
+        int out = Integer.parseInt(output);
+        for(int i = 1; i <= out; i ++){
+            Scanner scan2 = new Scanner(System.in);
+            System.out.println("Podaj liczbe");
+            String outputi = scan2.nextLine();
+            double outi = Double.parseDouble(outputi);
+            nums.add(outi);
+        }
+        for(int i = 0; i < out; i ++){
+            if(nums.get(i) >= 0 && flag){
+                flag = false;
+                temp = nums.get(i);
+            }
+            else if(nums.get(i) < 0){
+                flag = true;
+            }
+            else if(nums.get(i) >= 0){
+                nums_par.add(temp);
+                nums_par.add(nums.get(i));
+                temp = nums.get(i);
+            }
+        }
+        for(int i = 1; i <= out / 2; i ++){
+            System.out.println("Para " + i + " - (" + nums_par.get((i - 1) * 2) + ", " + nums_par.get((i * 2) - 1) + ")");
+        }
+    }
+
     public static void main(String[] args) {
+        //LAB1
         //javaz00();
-        //javaz011();
-        //javaz012();
-        //javaz013();
-        //javaz014();
-        //javaz015();
-        //javaz016();
-        //javaz017();
-        //javaz018();
-        javaz019();
+
+        //LAB2
+        //javaz011(); //zad1.1a
+        //javaz012(); //zad1.1b
+        //javaz013(); //zad1.1c
+        //javaz014(); //zad1.1d
+        //javaz015(); //zad1.1e
+        //javaz016(); //zad1.1f
+        //javaz017(); //zad1.1g
+        //javaz018(); //zad1.1h
+        //javaz019(); //zad1.1i
+        //javaz02(); //zad1.2
+        //javaz12(); //zad2.2
+        //javaz13(); //zad2.3
+        //javaz14(); //zad2.4
+        //javaz15(); //zad2.5
     }
 
 }
