@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Main {
     static void javaz00(){
@@ -40,26 +41,27 @@ public class Main {
         // zad10
         System.out.println("Terminator\nRambo\nJames Bond\n");
         // zad11
+        /*
         System.out.println("""
                 Istnieli albo nie istnieli.
-                Na wyspie albo nie na wyspie.
-                Ocean albo nie ocean
+                        Na wyspie albo nie na wyspie.
+                        Ocean albo nie ocean
                 połknął ich albo nie.
                 \s
                 Czy było komu kogoś słuchać kogo?
-                Czy było komu walczyć z kim?
-                Działo się wszystko albo nic
+                        Czy było komu walczyć z kim?
+                        Działo się wszystko albo nic
                 tam albo nie tam.
                 \s
                 Miast siedem stało.
-                Czy na pewno?
-                Stać wiecznie chciało.
-                Gdzie dowody?
+                        Czy na pewno?
+                        Stać wiecznie chciało.
+                        Gdzie dowody?
                 \s
                 Nie wymyślili prochu, nie.
                 \s
                 Proch wymyślili, tak.
-                Przypuszczalni. Wątpliwi.
+                        Przypuszczalni. Wątpliwi.
                 \s
                 Nie wyjęci z powietrza,
                 z ognia, z wody, z ziemi.
@@ -70,14 +72,15 @@ public class Main {
                 Nie mogący na serio
                 pozować do przestróg.
                 \s
-                Meteor spadł.
-                To nie meteor.
+        Meteor spadł.
+        To nie meteor.
                 Wulkan wybuchnął.
                 To nie wulkan.
-                Ktoś wołał coś.
+        Ktoś wołał coś.
                 Niczego nikt.
                 \s
-                Na tej plus minus Atlantydzie.""");
+        Na tej plus minus Atlantydzie.""");
+        */
     }
     static void javaz011(){
         Scanner scan1 = new Scanner(System.in);
@@ -266,7 +269,7 @@ public class Main {
         Scanner scan1 = new Scanner(System.in);
         System.out.println("Podaj n");
         String output = scan1.nextLine();
-        ArrayList<String> nums = new ArrayList<String>();
+        ArrayList<String> nums = new ArrayList<>();
         String first_num = "";
         int out = Integer.parseInt(output);
         for(int i = 1; i <= out; i ++){
@@ -388,6 +391,127 @@ public class Main {
             System.out.println("Para " + i + " - (" + nums_par.get((i - 1) * 2) + ", " + nums_par.get((i * 2) - 1) + ")");
         }
     }
+    //LAB3
+    public static void generuj(int tab[], int n, int minWartosc, int maxWartosc){
+        Random random = new Random();
+        int new_rand;
+        for(int i = 0; i < n; i ++) {
+            new_rand = (random.nextInt(Math.abs(minWartosc) + maxWartosc) + minWartosc);
+            tab[i] = new_rand;
+            System.out.println(tab[i]);
+        }
+    }
+    public static int ileNieparzystych(int tab[]){
+        int ile = 0;
+        for(int i = 0; i < tab.length; i ++){
+            if(tab[i] % 2 != 0){
+                ile += 1;
+            }
+        }
+        return ile;
+    }
+    public static int ileParzystych(int tab[]){
+        int ile = 0;
+        for(int i = 0; i < tab.length; i ++){
+            if(tab[i] % 2 == 0){
+                ile += 1;
+            }
+        }
+        return ile;
+    }
+    public static int ileDodatnich(int tab[]){
+        int ile = 0;
+        for(int i = 0; i < tab.length; i ++){
+            if(tab[i] > 0){
+                ile += 1;
+            }
+        }
+        return ile;
+    }
+    public static int ileUjemnych(int tab[]){
+        int ile = 0;
+        for(int i = 0; i < tab.length; i ++){
+            if(tab[i] < 0){
+                ile += 1;
+            }
+        }
+        return ile;
+    }
+    public static int ileZerowych(int tab[]){
+        int ile = 0;
+        for(int i = 0; i < tab.length; i ++){
+            if(tab[i] == 0){
+                ile += 1;
+            }
+        }
+        return ile;
+    }
+    public static int ileMaksymalnych(int tab[]){
+        int ile = 0;
+        int temp = -1000;
+        for(int i = 0; i < tab.length; i ++){
+            if(tab[i] > temp){
+                ile = 1;
+                temp = tab[i];
+            }
+            else if(temp == tab[i]){
+                ile += 1;
+            }
+        }
+        return ile;
+    }
+    public static int sumaDodatnich(int tab[]){
+        int ile = 0;
+        for(int i = 0; i < tab.length; i ++){
+            if(tab[i] > 0){
+                ile += tab[i];
+            }
+        }
+        return ile;
+    }
+    public static int sumaUjemnych(int tab[]){
+        int ile = 0;
+        for(int i = 0; i < tab.length; i ++){
+            if(tab[i] < 0){
+                ile += tab[i];
+            }
+        }
+        return ile;
+    }
+    public static int dlugoscMaksymalnegoCiaguDodatnich(int tab[]){
+        int ile = 0;
+        int dlugosc = 0;
+        for(int i = 0; i < tab.length; i ++){
+            if(tab[i] > 0){
+                ile += 1;
+            }
+            else{
+                if(ile > dlugosc)
+                {
+                    dlugosc = ile;
+                }
+                ile = 0;
+            }
+        }
+        return dlugosc;
+    }
+    public static void signum(int tab[]){
+        ArrayList<Integer> nums = new ArrayList<>();
+        for(int i = 0; i < tab.length; i ++){
+            if(tab[i] >= 0){
+                nums.add(1);
+            }
+            else{
+                nums.add(-1);
+            }
+        }
+        System.out.println(nums);
+    }
+    public static void odwrocFragment(int tab[], int lewy, int prawy){
+        for(int i = lewy; i <= prawy; i ++){
+
+        }
+    }
 
     public static void main(String[] args) {
         //LAB1
@@ -408,6 +532,22 @@ public class Main {
         //javaz13(); //zad2.3
         //javaz14(); //zad2.4
         //javaz15(); //zad2.5
+
+        //LAB3
+        //javaz021();
+        int[] intArray = new int[10];
+        generuj(intArray, 10, -999, 999);
+        System.out.println("Nieparzystych liczb jest: " + ileNieparzystych(intArray));
+        System.out.println("Parzystych liczb jest: " + ileParzystych(intArray));
+        System.out.println("Dodatnich liczb jest: " + ileDodatnich(intArray));
+        System.out.println("Ujemnych liczb jest: " + ileUjemnych(intArray));
+        System.out.println("Zer jest: " + ileZerowych(intArray));
+        System.out.println("Maksymalnych jest: " + ileMaksymalnych(intArray));
+        System.out.println("Suma dodatnich liczb: " + sumaDodatnich(intArray));
+        System.out.println("Suma ujemnych liczb: " + sumaUjemnych(intArray));
+        System.out.println("Dlugosc maksymalnego ciagu liczb dodatnich: " + dlugoscMaksymalnegoCiaguDodatnich(intArray));
+        signum(intArray);
+        odwrocFragment(intArray, 2, 7);
     }
 
 }
