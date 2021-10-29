@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Main {
+    //LAB1
     static void javaz00(){
         // zad1
         System.out.println(31 + 29 + 31);
@@ -82,6 +83,7 @@ public class Main {
         Na tej plus minus Atlantydzie.""");
         */
     }
+    //LAB2
     static void javaz011(){
         Scanner scan1 = new Scanner(System.in);
         System.out.println("Podaj n");
@@ -484,12 +486,12 @@ public class Main {
         for(int i = 0; i < tab.length; i ++){
             if(tab[i] > 0){
                 ile += 1;
-            }
-            else{
                 if(ile > dlugosc)
                 {
                     dlugosc = ile;
                 }
+            }
+            else{
                 ile = 0;
             }
         }
@@ -507,9 +509,64 @@ public class Main {
         }
         System.out.println(nums);
     }
-    public static void odwrocFragment(int tab[], int lewy, int prawy){
-        for(int i = lewy; i <= prawy; i ++){
-
+    public static void odwrocFragment(int tab[], int lewy, int prawy) {
+        int temp = 0;
+        int j = 0;
+        for(int i = lewy - 1; i <= prawy - 1; i ++) {
+            temp = tab[i];
+            tab[i] = tab[prawy - 1 - j];
+            tab[prawy - 1 - j] = temp;
+            if(i > prawy / 2)
+            {
+                break;
+            }
+            j ++;
+        }
+        for(int i = lewy - 1; i < prawy; i ++){
+            System.out.println(tab[i]);
+        }
+    }
+    public static void matrix(int m, int n, int k){
+        Random random = new Random();
+        int new_rand;
+        int[][] a = new int[m][n];
+        int[][] b = new int[n][k];
+        int[][] c = new int[m][k];
+        System.out.println("Macierz a: ");
+        for(int i = 0; i < m; i ++){
+            System.out.print("| ");
+            for(int j = 0; j < n; j ++){
+                new_rand = (random.nextInt(Math.abs(1) + 15) + 1);
+                a[i][j] = new_rand;
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.print("|");
+            System.out.println();
+        }
+        System.out.println("Macierz b: ");
+        for(int i = 0; i < n; i ++){
+            System.out.print("| ");
+            for(int j = 0; j < k; j ++){
+                new_rand = (random.nextInt(Math.abs(1) + 15) + 1);
+                b[i][j] = new_rand;
+                System.out.print(b[i][j] + " ");
+            }
+            System.out.print("|");
+            System.out.println();
+        }
+        System.out.println("Macierz c: ");
+        for(int i = 0; i < m; i ++){
+            System.out.print("| ");
+            for(int j = 0; j < k; j ++){
+                c[i][j] = 0;
+                for(int l = 0; l < n; l ++)
+                {
+                    c[i][j] += a[i][l] * b[l][j];
+                }
+                System.out.print(c[i][j] + " ");
+            }
+            System.out.print("|");
+            System.out.println();
         }
     }
 
@@ -534,7 +591,7 @@ public class Main {
         //javaz15(); //zad2.5
 
         //LAB3
-        //javaz021();
+        //zad 2
         int[] intArray = new int[10];
         generuj(intArray, 10, -999, 999);
         System.out.println("Nieparzystych liczb jest: " + ileNieparzystych(intArray));
@@ -547,7 +604,9 @@ public class Main {
         System.out.println("Suma ujemnych liczb: " + sumaUjemnych(intArray));
         System.out.println("Dlugosc maksymalnego ciagu liczb dodatnich: " + dlugoscMaksymalnegoCiaguDodatnich(intArray));
         signum(intArray);
-        odwrocFragment(intArray, 2, 7);
+        odwrocFragment(intArray, 3, 9);
+        //zad 3
+        matrix(3, 4, 5);
     }
 
 }
