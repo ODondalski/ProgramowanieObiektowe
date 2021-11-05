@@ -1,7 +1,8 @@
 package com.company;
 
+import java.lang.reflect.Array;
+import java.util.Collections;
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.*;
 import java.io.*;
@@ -720,7 +721,60 @@ public class Main {
         sum = sum.setScale(2, RoundingMode.CEILING);
         return sum;
     }
-
+    //LAB5
+    public static ArrayList<Integer> append(ArrayList<Integer> a, ArrayList<Integer> b){
+        ArrayList<Integer> al= new ArrayList<Integer>();
+        al.addAll(a);
+        al.addAll(b);
+        return al;
+    }
+    public static ArrayList<Integer> merge(ArrayList<Integer> a, ArrayList<Integer> b){
+        ArrayList<Integer> al= new ArrayList<Integer>();
+        for(int i = 0; i < a.size(); i ++){
+            al.add(a.get(i));
+            if(b.size() > i){
+                al.add(b.get(i));
+            }
+        }
+        if(b.size() > a.size()){
+            for(int i = a.size(); i < b.size(); i ++){
+                al.add(b.get(i));
+            }
+        }
+        return al;
+    }
+    public static ArrayList<Integer> mergeSorted(ArrayList<Integer> a, ArrayList<Integer> b){
+        ArrayList<Integer> al= new ArrayList<Integer>();
+        for(int i = 0; i < a.size(); i ++){
+            al.add(a.get(i));
+            if(b.size() > i){
+                al.add(b.get(i));
+            }
+        }
+        if(b.size() > a.size()){
+            for(int i = a.size(); i < b.size(); i ++){
+                al.add(b.get(i));
+            }
+        }
+        Collections.sort(al);
+        return al;
+    }
+    public static ArrayList<Integer> reversed(ArrayList<Integer> a){
+        ArrayList<Integer> al= new ArrayList<>();
+        for(int i = a.size() - 1; i >= 0; i --){
+            al.add(a.get(i));
+        }
+        return al;
+    }
+    public static void reverse(ArrayList<Integer> a){
+        int temp;
+        for(int i = 0; i < a.size() / 2; i ++){
+            temp =  a.get(i);
+            a.set(i, a.get(a.size() - i - 1));
+            a.set(a.size() - i - 1, temp);
+        }
+        System.out.println("Reverse method" + a);
+    }
     public static void main(String[] args) throws IOException {
         //LAB1
         //javaz00();
@@ -760,6 +814,7 @@ public class Main {
         //matrix(3, 4, 5);
 
         //LAB4
+        /*
         //zad 1
         System.out.println(countChar("kajak", 'k'));
         System.out.println(countSubStr("hellohrfdfdfhdfhhello", "hello"));
@@ -776,6 +831,19 @@ public class Main {
         System.out.println(szachownica(3));
         //zad 5
         System.out.println(kapital(1333, 4.5, 7));
+        */
+
+        //LAB5
+        ArrayList<Integer> a = new ArrayList<>(Arrays.asList(1, 2, 6, 4, 3, 6, 2));
+        ArrayList<Integer> b = new ArrayList<>(Arrays.asList(2, 2, 2, 5, 5, 5, 8, 2, 2));
+        System.out.println("First list: " + a);
+        System.out.println("Second list: " + b);
+        System.out.println("Append method: " + append(a, b));
+        System.out.println("Merge method: " + merge(a, b));
+        System.out.println("MergeSorted method: " + mergeSorted(a, b));
+        System.out.println("Reversed method: " + reversed(a));
+        reverse(a);
+
     }
 
 }
