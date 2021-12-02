@@ -26,10 +26,10 @@ class TestPracownikVer0 {
 
         // Poniższy fragment pokazuje problem naruszenia hermetyzacji
         // wynikający z niepoprawnie zaprogramowanej metody dataZatrudnienia()
-        Date d = personel[0].dataZatrudnienia();
+        //Date d = personel[0].dataZatrudnienia();
 
         double tenYersInMiliSeconds = 10 * 365.25 * 24 * 60 * 60 * 1000;
-        d.setTime(d.getTime() - (long) tenYersInMiliSeconds);
+        //d.setTime(d.getTime() - (long) tenYersInMiliSeconds);
 
         for (Pracownik e : personel) {
             System.out.print("nazwisko = " + e.nazwisko() + "\tpobory = " + e.pobory());
