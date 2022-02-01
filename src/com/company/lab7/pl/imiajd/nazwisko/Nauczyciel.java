@@ -10,6 +10,7 @@ public class Nauczyciel extends Osoba{
     public double getPensja(){
         return pensja;
     }
+    @Override
     public String toString(){
         return getNazwisko() + ", rok urodzenia - " + getRokUrodzenia() + ", pensja - " + pensja;
     }
